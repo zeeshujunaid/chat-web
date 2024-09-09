@@ -1,6 +1,12 @@
 import React from "react";
 
 function Signup() {
+  const [email , setEmail] = React.useState('')
+  const [password , setpassword] = React.useState('')
+  function handelsingup() {
+    console.log(password)
+    console.log(email)
+  }
   return (
     <div className="flex items-center justify-center min-h-screen bg-black">
       {/* Animated Background */}
@@ -63,6 +69,7 @@ function Signup() {
           </div>
           <button
             type="submit"
+            onClick={handelsingup}
             className="w-full px-4 py-2 text-lg font-semibold text-gray-900 bg-gradient-to-r from-blue-400 to-purple-600 rounded-lg hover:bg-gradient-to-l hover:from-purple-600 hover:to-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition-all duration-300"
           >
             Sign Up
