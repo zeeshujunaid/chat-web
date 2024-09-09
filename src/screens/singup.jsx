@@ -6,7 +6,7 @@ function Singup() {
   const [password , setPassword] = useState('')
   function handelsingup(e) {
     e.preventDefault()
-    create
+    
   }
   return (
     <div className="flex items-center justify-center min-h-screen bg-black">
