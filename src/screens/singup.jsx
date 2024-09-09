@@ -6,7 +6,14 @@ function Singup() {
   const [password , setPassword] = useState('')
   function handelsingup(e) {
     e.preventDefault()
-    
+    createUserWithEmailAndPassword(auth , email, password)
+    .then((response)=>{
+      const user = response.user;
+      console.log(user);
+    })
+    .catch((error)=>{
+      alert(error.message )
+    });
   }
   return (
     <div className="flex items-center justify-center min-h-screen bg-black">
