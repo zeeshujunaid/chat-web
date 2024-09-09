@@ -1,11 +1,12 @@
-import React from "react";
+import React ,{useState} from "react";
 
-function Signup() {
-  const [email , setEmail] = React.useState('')
-  const [password , setpassword] = React.useState('')
-  function handelsingup() {
-    console.log(password)
-    console.log(email)
+function Singup() {
+  const [name , setName] = useState('')
+  const [email , setEmail] = useState('')
+  const [password , setPassword] = useState('')
+  function handelsingup(e) {
+    e.preventDefault()
+    create
   }
   return (
     <div className="flex items-center justify-center min-h-screen bg-black">
@@ -24,6 +25,7 @@ function Signup() {
               Full Name
             </label>
             <input
+            onChange={e=>setName(e.target.value)}
               type="text"
               id="name"
               name="name"
@@ -36,6 +38,7 @@ function Signup() {
               Email Address
             </label>
             <input
+            onChange={e=>setEmail(e.target.value)}
               type="email"
               id="email"
               name="email"
@@ -48,6 +51,7 @@ function Signup() {
               Password
             </label>
             <input
+            onChange={e=>setPassword(e.target.value)}
               type="password"
               id="password"
               name="password"
@@ -86,4 +90,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default Singup;
