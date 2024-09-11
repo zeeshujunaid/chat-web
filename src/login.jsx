@@ -18,7 +18,7 @@ function Login() {
           const uid = userCredential.user.uid;
           console.log("UID saved in localStorage", uid);
           localStorage.setItem("user", uid);
-          navigate("/home");
+          navigate("/chat");
           setEmail("");
           setPassword("");
         })

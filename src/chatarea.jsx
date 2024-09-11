@@ -73,24 +73,24 @@ function Chat() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex">
+    <div className="flex min-h-screen bg-gray-100">
       {/* User List Section */}
-      <div className="w-1/2 bg-white shadow-lg">
-        <nav className="bg-white shadow-md dark:bg-gray-900 p-4">
-          <Link to="/home" className="text-2xl font-bold text-gray-800 dark:text-white">
+      <div className="w-1/3 bg-white shadow-lg flex flex-col">
+        <nav className="bg-white shadow-md dark:bg-gray-900 p-4 flex flex-col justify-center items-center">
+          <Link to="/home" className="text-4xl font-bold text-gray-800 dark:text-white">
             ZJ-CHAT-APP
           </Link>
           <div className="mt-6">
             <button
               onClick={logoutBtn}
-              className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg w-full"
+              className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg"
             >
               Logout
             </button>
           </div>
         </nav>
 
-        <div className="p-6">
+        <div className="flex-1 overflow-y-auto p-6 scrollbar-thin">
           <h2 className="text-2xl font-bold text-gray-800 mb-4">Available Users</h2>
           <div className="space-y-2">
             {showList.length === 0 ? (
@@ -108,7 +108,6 @@ function Chat() {
                   <div className="text-sm text-gray-600">{user.email}</div>
                   {/* Display phone number and blood group */}
                   <div className="text-sm text-gray-500">Phone: {user.phone || "N/A"}</div>
-                  <div className="text-sm text-gray-500">Blood Group: {user.bloodGroup || "N/A"}</div>
                 </div>
               ))
             )}
@@ -117,7 +116,7 @@ function Chat() {
       </div>
 
       {/* Chat Section */}
-      <div className="w-3/4 bg-gray-100 p-6 flex flex-col justify-between">
+      <div className="w-2/3 bg-gray-100 flex flex-col">
         {selectedUser ? (
           <>
             {/* Chat Header */}
@@ -126,7 +125,7 @@ function Chat() {
             </div>
 
             {/* Chat Messages */}
-            <div className="flex-1 overflow-auto p-4">
+            <div className="flex-1 overflow-auto p-4 scrollbar-thin">
               {chat.length === 0 ? (
                 <p className="text-center text-gray-500">No messages yet. Start the conversation!</p>
               ) : (

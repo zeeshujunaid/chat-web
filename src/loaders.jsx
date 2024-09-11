@@ -9,7 +9,7 @@ function Loader() {
     
     if (userId !== null) {
       // If user is logged in, redirect to home
-      navigate("/home");
+      navigate("/chat");
     } else {
       // If no user, redirect to login
       navigate("/login");

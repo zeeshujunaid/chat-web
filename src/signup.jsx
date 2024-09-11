@@ -11,25 +11,23 @@ function Signup() {
   const [isLoading, setIsLoading] = useState(false);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState(""); // New phone state
-  const [bloodGroup, setBloodGroup] = useState(""); // New blood group state
   const navigate = useNavigate();
 
   const signUpDatabase = () => {
-    if (email !== "" && password !== "" && name !== "" && phone !== "" && bloodGroup !== "") {
+    if (email !== "" && password !== "" && name !== "" && phone !== "") {
       setIsLoading(true);
       createUserWithEmailAndPassword(auth, email, password)
         .then(async (res) => {
           const uid = res.user.uid;
           localStorage.setItem("user", uid);
-          const userData = { email, uid, name, phone, bloodGroup }; // Storing phone and blood group
+          const userData = { email, uid, name, phone,  }; // Storing phone and blood group
           console.log("User data saved", userData);
           await setDoc(doc(db, "users", uid), userData);
           setEmail("");
           setPassword("");
           setName("");
           setPhone(""); // Clear the phone input
-          setBloodGroup(""); // Clear the blood group input
-          navigate("/home"); // Redirect to home after successful signup
+          navigate("/chat"); // Redirect to chatarea after successful signup
         })
         .catch((error) => {
           alert("Error: " + error.message);
@@ -71,13 +69,6 @@ function Signup() {
           placeholder="Enter Phone Number"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
-        />
-        <input
-          type="text"
-          className="w-full mb-4 p-2 border border-gray-300 rounded-lg"
-          placeholder="Enter Blood Group"
-          value={bloodGroup}
-          onChange={(e) => setBloodGroup(e.target.value)}
         />
         {isLoading ? (
           <Loader />
